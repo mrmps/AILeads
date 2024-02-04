@@ -139,6 +139,7 @@ export async function CompanyCard({
                     />
                   }
                 >
+                 {/* @ts-expect-error Server Component */}
                   <Wrapper url={url} />
                 </Suspense>
               </ResponsiveDrawer>

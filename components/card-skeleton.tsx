@@ -11,7 +11,7 @@ import {
   Wand2,
 } from "lucide-react";
 
-export function CompanyCardSkeleton(title: string) {
+export function CompanyCardSkeleton() {
   return (
     <Card className="mb-6 bg-gray-100 dark:bg-gray-700">
       <CardContent className="pt-4">

@@ -9,29 +9,24 @@ export default function Home({
   // params: { slug: string };
   searchParams?: { [key: string]: string | string[] | undefined };
 }) {
-  console.log(searchParams)
-  const query = searchParams?.search || '';
-  console.log('query is', query)
+  console.log(searchParams);
+  const query = searchParams && searchParams.search ? searchParams.search.toString() : "";
+  console.log("query is", query);
   return (
     <main className="min-h-screen mx-24 my-24">
-       <div className="max-w-6xl mx-auto my-8 p-6 bg-white rounded-lg shadow-sm border border-zinc-100 dark:bg-gray-800">
-      <SearchView />
+      <div className="max-w-6xl mx-auto my-8 p-6 bg-white rounded-lg shadow-sm border border-zinc-100 dark:bg-gray-800">
+        <SearchView />
 
-      <div className="mt-8">
-        {/* <h2 className="text-xs font-medium text-gray-800 dark:text-white mb-6 uppercase">Your Input Companies</h2> */}
-        {/* <CompanyCard 
-          id="amazon" 
-          name="Amazon" 
-          industry="Software Development" 
-          employeeCount="10,001+ employees" 
-          location="United States" 
-          website="amazon.com" 
-          summary="Amazon is a company that specializes in sourcing items to people."
-        /> */}
-        {typeof query === 'string' && query !== '' && <h2 className="text-xs font-medium text-gray-800 dark:text-white mb-6 uppercase">Lookalike Results</h2>}
-      </div>
-            {/* @ts-expect-error Server Component */}
-      {typeof query === 'string' && query !== '' && <CompanyResults query={query} />}
+        <div className="mt-8">
+          {query && (
+            <h2 className="text-xs font-medium text-gray-800 dark:text-white mb-6 uppercase">
+              Lookalike Results
+            </h2>
+          )}
+        </div>
+        {query && (
+          <CompanyResults query={query} />
+        )}
       </div>
     </main>
   );

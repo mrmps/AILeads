@@ -139,7 +139,6 @@ export async function CompanyCard({
                     />
                   }
                 >
-                 {/* @ts-expect-error Server Component */}
                   <Wrapper url={url} />
                 </Suspense>
               </ResponsiveDrawer>
@@ -224,7 +223,7 @@ async function Wrapper({ url }: { url: string }) {
       if (!response.ok) {
         return "Well this sucks. Looks like I ran out of money to pay for summaries. Please be patient until a benevolent sponsor gives me either cash or sweet sweet OpenAI credits. If you would like to be that sponsor, feel free to reach out to contact@smry.ai!";
       }
-  
+      
       return <Tokens stream={stream} />;
     } catch (error) {
       return `Well this sucks. Looks like an unexpected error occured, so no summary for this site :( No I won't tell you the error, that is private. Really, you insist? Fine. The error is ${error} Happy?`;
